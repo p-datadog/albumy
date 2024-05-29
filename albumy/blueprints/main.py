@@ -21,9 +21,13 @@ from albumy.utils import rename_image, resize_image, redirect_back, flash_errors
 
 main_bp = Blueprint('main', __name__)
 
+def helper():
+    x = 400
+    return 42
 
 @main_bp.route('/')
 def index():
+    helper()
     if current_user.is_authenticated:
         page = request.args.get('page', 1, type=int)
         per_page = current_app.config['ALBUMY_PHOTO_PER_PAGE']
